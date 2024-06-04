@@ -1,1 +1,80 @@
-# ai-bash
+# AI-Bash - A Wrapper for llm & Ollama made for your code editors
+
+This is the result of experiments with the visual-mode and command-line mode in vi. By combining a bash utility wrapping AI CLIs with the flow "Selection -> Run Shell Command on Selection -> Replace Selection", you gain powerful AI capabilities.
+
+It works on VIM, NeoVIM, Emacs and even VSCode.
+
+![code/fill demo action](demo.gif)
+
+**Prompts included**
+
+- code/comment: Add comments to code
+- code/explain: Explain a piece of code by adding comments
+- code/fill: Replace the //fill keywords with the missing code logic
+- code/fix: Fix errors in code syntax or logic
+- code/name: Rename code symbols for clarity
+- email/draft: Create an email from instructions or notes
+- email/reply: Reply to an email in the sender language
+- personal/mealplan: Generate a meal plan for the next 7 days
+- translate/english: Translate text to English
+- translate/french: Translate text to French
+
+
+## Setting Things Up
+
+### 1. Install Required Dependencies
+
+Explore a myriad of models, both local and via robust APIs such as OpenAI and Together.
+
+- [Ollama](ollama.ai/): A straightforward approach to working with Llama3 and other open-source language models on a local setup.
+
+Note: It's advisable to start with uncensored (dolphin-) llama3.
+
+### 2. Update your $PATH
+
+To efficiently call upon `lm` (representing llm) or `oll` (representing ollama) from your terminal or editor, integrate the main directory of this project into your $PATH.
+
+Incorporate the following line into your `.zshrc` or `.bashrc`:
+
+```bash
+export PATH=$PATH:<path-to-the-project-directory>
+```
+
+### 3. Experiment in Your Terminal
+
+Engage with the wrappers directly:
+
+```bash
+# Quick translation to French:
+lm translate/french "Hello there! How are you today?"
+
+# For a multi-line input, use Ctrl-D post entry to initiate the process:
+echo "$(cat)" | llm translate/french
+```
+
+### 4. Integration with VIM, NeoVIM, Emacs & VSCode
+
+The text you select serves as the context for the LLM's prompts, which in turn, will be replaced by the LLM's output.
+
+#### Procedures for Vim, NeoVIM, Emacs:
+
+1. Initiate a region selection in visual mode.
+2. Transition to the command-line mode with `:` followed by `!`.
+3. Enter `lm [prompt-name]` to activate llm-cli or `oll [prompt-name]` to call ollama.
+
+Examples for clarity:
+
+```bash
+lm -h # Displays available prompts
+oll -h # Likewise
+lm code/fill # Engage llm to utilize the 'code/fill' prompt
+oll translate/french # Translation to French using Ollama CLI
+```
+
+### 5. Customize with Your Prompts
+
+Add your own bash scripts or directories under the `prompts` folder, and they'll be integrated into the prompt list.
+
+Feel free to contribute your own prompts to this repository. I'll be happy to add new ones.
+
+thanks: http://josephthacker.com/ai/2023/09/18/vim-llm-hacks.html?utm_source=modernchaos.heytwist.com&utm_medium=referral&utm_campaign=follow-up-on-vim-llm-small-things-that-awww Joseph Tracker &  Samuel Roy
