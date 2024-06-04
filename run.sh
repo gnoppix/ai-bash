@@ -83,7 +83,7 @@ case "${CLI}" in
         llm "${prompt}" -s "${system}" -o temperature "${temperature}" -m "${model}"
         ;;
     "oll")
-        model="${force_model:-${oll_model:-mistral-openorca}}"
+        model="${force_model:-${oll_model:-dolphin-llama3}}"
         ollama run "${model}" "${system}" "${prompt}"
         ;;
     *)
