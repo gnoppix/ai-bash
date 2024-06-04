@@ -18,13 +18,13 @@ It works on VIM, NeoVIM, Emacs and even VSCode.
 - personal/mealplan: Generate a meal plan for the next 7 days
 - translate/english: Translate text to English
 - translate/french: Translate text to French
-
+- translate/deutsch: Translate text to German
 
 ## Setting Things Up
 
 ### 1. Install Required Dependencies
 
-Explore a myriad of models, both local and via robust APIs such as OpenAI and Together.
+Explore a myriad of models, local and via robust APIs such as ollama.
 
 - [Ollama](ollama.ai/): A straightforward approach to working with Llama3 and other open-source language models on a local setup.
 
